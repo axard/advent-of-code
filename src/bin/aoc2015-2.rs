@@ -22,6 +22,7 @@ fn main() {
     println!("part 2: {} feets", full_length);
 }
 
+#[cfg(test)]
 mod test {
     #[test]
     fn test_area_2l_3w_4h() {
