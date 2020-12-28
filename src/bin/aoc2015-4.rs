@@ -12,7 +12,20 @@ fn main() {
         let output = hasher.finalize_reset();
         let first_five = output[0] as u32 + output[1] as u32 + (output[2] >> 4) as u32;
         if first_five == 0 {
-            println!("{}", i);
+            println!("part 1: {}", i);
+            break;
+        }
+    }
+
+    for i in 0..u64::MAX {
+        hasher.update(input);
+        hasher.update(i.to_string().as_bytes());
+
+        // let mut output: [u8; 16] = [0; 16];
+        let output = hasher.finalize_reset();
+        let first_five = output[0] as u32 + output[1] as u32 + output[2] as u32;
+        if first_five == 0 {
+            println!("part 2: {}", i);
             break;
         }
     }
